@@ -27,29 +27,29 @@ app.add_middleware(
 HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY", "")
 HUGGINGFACE_API_URL = os.getenv("HUGGINGFACE_API_URL", "https://api-inference.huggingface.co/models/meta-llama/Meta-Llama-3.1-8B-Instruct")
 
-# Mock stock data - Top 20 stocks
 MOCK_STOCKS = [
-    {"ticker": "NVDA", "company": "NVIDIA Corporation", "base_price": 875.40, "growth": 156.78, "volatility": 12.5, "base_volume": 95000000, "market_cap": 2158000000000},
-    {"ticker": "META", "company": "Meta Platforms Inc", "base_price": 492.50, "growth": 89.45, "volatility": 15.2, "base_volume": 42000000, "market_cap": 1245000000000},
-    {"ticker": "TSLA", "company": "Tesla, Inc.", "base_price": 248.50, "growth": 67.23, "volatility": 22.8, "base_volume": 125000000, "market_cap": 789000000000},
-    {"ticker": "AMZN", "company": "Amazon.com Inc", "base_price": 178.30, "growth": 52.15, "volatility": 10.5, "base_volume": 68000000, "market_cap": 1856000000000},
-    {"ticker": "GOOGL", "company": "Alphabet Inc Class A", "base_price": 142.80, "growth": 45.67, "volatility": 8.9, "base_volume": 35000000, "market_cap": 1789000000000},
-    {"ticker": "MSFT", "company": "Microsoft Corporation", "base_price": 412.30, "growth": 38.92, "volatility": 7.2, "base_volume": 45000000, "market_cap": 3078000000000},
-    {"ticker": "AAPL", "company": "Apple Inc.", "base_price": 185.40, "growth": 25.50, "volatility": 8.2, "base_volume": 78000000, "market_cap": 2891000000000},
-    {"ticker": "AMD", "company": "Advanced Micro Devices", "base_price": 165.20, "growth": 78.34, "volatility": 18.5, "base_volume": 82000000, "market_cap": 267000000000},
-    {"ticker": "NFLX", "company": "Netflix Inc", "base_price": 598.75, "growth": 42.18, "volatility": 16.3, "base_volume": 38000000, "market_cap": 259000000000},
-    {"ticker": "V", "company": "Visa Inc", "base_price": 272.60, "growth": 18.45, "volatility": 6.8, "base_volume": 28000000, "market_cap": 567000000000},
-    {"ticker": "MA", "company": "Mastercard Inc", "base_price": 458.90, "growth": 22.33, "volatility": 7.1, "base_volume": 25000000, "market_cap": 445000000000},
-    {"ticker": "JPM", "company": "JPMorgan Chase & Co", "base_price": 198.45, "growth": 15.67, "volatility": 9.2, "base_volume": 32000000, "market_cap": 589000000000},
-    {"ticker": "WMT", "company": "Walmart Inc", "base_price": 168.20, "growth": 12.89, "volatility": 5.4, "base_volume": 48000000, "market_cap": 478000000000},
-    {"ticker": "JNJ", "company": "Johnson & Johnson", "base_price": 156.78, "growth": 8.23, "volatility": 4.8, "base_volume": 22000000, "market_cap": 389000000000},
-    {"ticker": "PG", "company": "Procter & Gamble Co", "base_price": 164.55, "growth": 10.45, "volatility": 5.1, "base_volume": 26000000, "market_cap": 398000000000},
-    {"ticker": "XOM", "company": "Exxon Mobil Corporation", "base_price": 112.34, "growth": -5.67, "volatility": 14.2, "base_volume": 55000000, "market_cap": 456000000000},
-    {"ticker": "CVX", "company": "Chevron Corporation", "base_price": 156.89, "growth": -3.24, "volatility": 12.8, "base_volume": 42000000, "market_cap": 289000000000},
-    {"ticker": "KO", "company": "The Coca-Cola Company", "base_price": 62.45, "growth": 6.78, "volatility": 4.2, "base_volume": 52000000, "market_cap": 268000000000},
-    {"ticker": "BAC", "company": "Bank of America Corp", "base_price": 38.92, "growth": 14.56, "volatility": 11.3, "base_volume": 98000000, "market_cap": 312000000000},
-    {"ticker": "HD", "company": "The Home Depot Inc", "base_price": 382.75, "growth": 19.88, "volatility": 8.7, "base_volume": 36000000, "market_cap": 389000000000},
+    {"ticker": "ORCL", "company": "Oracle Corporation", "base_price": 875.40, "growth": 156.78, "volatility": 12.5, "base_volume": 95000000, "market_cap": 2158000000000},
+    {"ticker": "ADBE", "company": "Adobe Inc", "base_price": 492.50, "growth": 89.45, "volatility": 15.2, "base_volume": 42000000, "market_cap": 1245000000000},
+    {"ticker": "INTC", "company": "Intel Corporation", "base_price": 248.50, "growth": 67.23, "volatility": 22.8, "base_volume": 125000000, "market_cap": 789000000000},
+    {"ticker": "IBM", "company": "International Business Machines", "base_price": 178.30, "growth": 52.15, "volatility": 10.5, "base_volume": 68000000, "market_cap": 1856000000000},
+    {"ticker": "SAP", "company": "SAP SE", "base_price": 142.80, "growth": 45.67, "volatility": 8.9, "base_volume": 35000000, "market_cap": 1789000000000},
+    {"ticker": "CSCO", "company": "Cisco Systems Inc", "base_price": 412.30, "growth": 38.92, "volatility": 7.2, "base_volume": 45000000, "market_cap": 3078000000000},
+    {"ticker": "CRM", "company": "Salesforce Inc", "base_price": 185.40, "growth": 25.50, "volatility": 8.2, "base_volume": 78000000, "market_cap": 2891000000000},
+    {"ticker": "QCOM", "company": "Qualcomm Inc", "base_price": 165.20, "growth": 78.34, "volatility": 18.5, "base_volume": 82000000, "market_cap": 267000000000},
+    {"ticker": "TXN", "company": "Texas Instruments Inc", "base_price": 598.75, "growth": 42.18, "volatility": 16.3, "base_volume": 38000000, "market_cap": 259000000000},
+    {"ticker": "PYPL", "company": "PayPal Holdings Inc", "base_price": 272.60, "growth": 18.45, "volatility": 6.8, "base_volume": 28000000, "market_cap": 567000000000},
+    {"ticker": "SQ", "company": "Block Inc", "base_price": 458.90, "growth": 22.33, "volatility": 7.1, "base_volume": 25000000, "market_cap": 445000000000},
+    {"ticker": "C", "company": "Citigroup Inc", "base_price": 198.45, "growth": 15.67, "volatility": 9.2, "base_volume": 32000000, "market_cap": 589000000000},
+    {"ticker": "TGT", "company": "Target Corporation", "base_price": 168.20, "growth": 12.89, "volatility": 5.4, "base_volume": 48000000, "market_cap": 478000000000},
+    {"ticker": "PFE", "company": "Pfizer Inc", "base_price": 156.78, "growth": 8.23, "volatility": 4.8, "base_volume": 22000000, "market_cap": 389000000000},
+    {"ticker": "MRK", "company": "Merck & Co Inc", "base_price": 164.55, "growth": 10.45, "volatility": 5.1, "base_volume": 26000000, "market_cap": 398000000000},
+    {"ticker": "BP", "company": "BP plc", "base_price": 112.34, "growth": -5.67, "volatility": 14.2, "base_volume": 55000000, "market_cap": 456000000000},
+    {"ticker": "TOT", "company": "TotalEnergies SE", "base_price": 156.89, "growth": -3.24, "volatility": 12.8, "base_volume": 42000000, "market_cap": 289000000000},
+    {"ticker": "PEP", "company": "PepsiCo Inc", "base_price": 62.45, "growth": 6.78, "volatility": 4.2, "base_volume": 52000000, "market_cap": 268000000000},
+    {"ticker": "GS", "company": "Goldman Sachs Group Inc", "base_price": 38.92, "growth": 14.56, "volatility": 11.3, "base_volume": 98000000, "market_cap": 312000000000},
+    {"ticker": "LOW", "company": "Lowe's Companies Inc", "base_price": 382.75, "growth": 19.88, "volatility": 8.7, "base_volume": 36000000, "market_cap": 389000000000},
 ]
+
 
 class AnalyzeRequest(BaseModel):
     ticker: str
@@ -123,15 +123,14 @@ def get_stock_by_ticker(ticker: str):
 
 @app.get("/")
 def read_root():
-    return {"message": "RealTicker API is running with mock data"}
+    return {"message": "RealTicker API is running successfully!"}
 
 @app.get("/api/stocks/top10")
 def get_top10_stocks(sort_by: Optional[str] = Query("growth", description="Sort by: growth, volume, or market_cap")):
     """
     Get top 10 stocks based on sorting criteria
     
-    Parameters:
-    - sort_by: 'growth' (default), 'volume', or 'market_cap'
+
     """
     print(f"Generating top 10 stocks sorted by {sort_by}...")
     
@@ -245,7 +244,6 @@ Reasoning: [brief explanation]"""
     result = None
     
     try:
-        # Call HuggingFace API only if key is provided
         if HUGGINGFACE_API_KEY and HUGGINGFACE_API_KEY != "your_huggingface_api_key_here":
             headers = {
                 "Authorization": f"Bearer {HUGGINGFACE_API_KEY}"
@@ -309,14 +307,12 @@ Reasoning: [brief explanation]"""
     except Exception as e:
         print(f"Error calling HuggingFace API: {str(e)}")
     
-    # Use fallback if LLM failed or no API key
     if not result:
         result = generate_fallback_analysis(ticker, price_change, volatility_percent)
     
     return result
 
 def generate_fallback_analysis(ticker: str, price_change: float, volatility: float):
-    """Generate basic analysis when LLM is unavailable"""
     
     # Determine trend
     if price_change > 10:
