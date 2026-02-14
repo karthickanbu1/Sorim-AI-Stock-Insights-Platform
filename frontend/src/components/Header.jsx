@@ -23,7 +23,6 @@ const Header = () => {
             <h1 className="text-3xl font-bold ml-2">RealTicker</h1>
           </div>
         </Link>
-        <p className="text-blue-100 mt-2">AI-Powered Stock Insights Platform</p>
       </div>
     </header>
   );

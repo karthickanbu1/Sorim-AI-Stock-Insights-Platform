@@ -65,7 +65,7 @@ const StockTable = ({ stocks, loading, sortBy }) => {
                 className="hover:bg-gray-50 cursor-pointer transition-colors"
               >
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  #{index + 1}
+                  {index + 1}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm font-bold text-blue-700">{stock.ticker}</div>
